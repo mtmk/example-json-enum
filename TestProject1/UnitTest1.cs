@@ -21,6 +21,7 @@ public class UnitTest1
             Converters = {  }
         }).MyClass);
 
-        _output.WriteLine(json);
+        _output.WriteLine(json); // {"conf_policy":"Explicit"}
+        Assert.Equal("""{"conf_policy":"explicit"}""", json);
     }
 }
