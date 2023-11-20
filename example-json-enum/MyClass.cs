@@ -26,12 +26,12 @@ public enum MyEnum
 
 [JsonSerializable(typeof(MyClass))]
 [JsonSerializable(typeof(MyEnum))]
-// [JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.SnakeCaseLower)]
+[JsonSourceGenerationOptions(PropertyNamingPolicy = JsonKnownNamingPolicy.CamelCase)]
 public partial class SerContext : JsonSerializerContext
 {
 }
 
-public class JsonStringEnumConverter<TEnum> : JsonConverter<TEnum> where TEnum : struct, Enum
+public class JsonCustomStringEnumConverter<TEnum> : JsonConverter<TEnum> where TEnum : struct, Enum
 {
     public override TEnum Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
