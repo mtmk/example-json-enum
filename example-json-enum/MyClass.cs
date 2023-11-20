@@ -42,8 +42,15 @@ public class JsonStringEnumConverter<TEnum> : JsonConverter<TEnum> where TEnum :
             {
                 var stringValue = reader.GetString();
 
-                if (stringValue == "explicit")
-                    return (TEnum)(object)MyEnum.Explicit;
+                switch (stringValue)
+                {
+                    case "explicit":
+                        return (TEnum)(object)MyEnum.Explicit;
+                    case "all":
+                        return (TEnum)(object)MyEnum.All;
+                    case "none":
+                        return (TEnum)(object)MyEnum.None;
+                }
             }
 
             return default;
